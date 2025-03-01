@@ -1,0 +1,97 @@
+Git Setup on Local System:
+Step 1 : check if git is already installed
+             git --version
+Step 2 : download Git installer from https://git-scm.com/
+Step 3 : Run installer and install git
+Step 4 : Check if git is installed  git --version
+
+Create GitHub Account:
+Step 1 : Goto https://github.com/ and sign up
+Step 2 : Login to GitHub
+Step 3 : Create a new Repository
+
+Git Commands
+
+Step 1 : Create a new folder and open Git Bash/CMD and goto the folder location
+Step 2 : Run Commands
+git config --global user.email "yourGitHub@email.com"
+git config --global user.name "yourGitHubusername"
+Step 3 : Initialize Git  git init
+Step 4 : Add some files in the folder
+Step 5 : Run commands git status
+        git add
+        git commit -m “…..”
+Step 6 : Add the remote repo url 
+git remote add origin url_of_hithub_repo
+Step 7 : Push the changes to repository git push -u origin master
+Step 8 : Check output of following commands
+    git log
+     git --help
+
+Git Branches:
+1. What are branches
+2. How to create branch
+3. How to checkout branch
+4. How to merge branch to master
+5. How to delete branch (local and remote)
+
+Step 1 : Create branch   git branch “branch name”
+Step 2 : Checkout branch   git checkout “branch name”
+Step 3 : Make some changes in your project
+  Do add, commit, push  git push -u origin newbranch
+  Check the branch is visible on GitHub repository
+Step 4 : On local checkout master branch - git checkout master
+Step 5 : Merge new branch in master branch git merge “branch name”
+Step 6 : Push the changes - git push -u origin master
+Step 7 : Delete branch
+     git branch -d “branch name”     // will delete from local
+     git push origin --delete “branch name”     // will delete from remote
+
+Git Tags:
+1. What are tags / releases
+2. Why should i create TAGs
+3. When to create TAGs
+4. How to create TAGs in git
+     create | show | publish | delete
+
+Step 1: Checkout the branch where you want to create the tag
+git checkout "branch name" 
+example : git checkout master
+Step 2: Create tag with some name  
+git tag "tag name" 
+example : git tag v1.0
+Step 3: Display or Show tags git tag
+       git show v1.0
+       git tag -l “v1.*”
+Step 4: Push tags to remote git push origin v1.0
+Step 5: Delete tags (if required only)
+to delete tags from local :   git tag -d v1.0
+       git tag --delete v1.0
+ to delete tags from remote :git push origin -d v1.0
+       git push origin --delete v1.0
+       git push origin :v1.0
+to delete multiple tags at once:
+git tag -d v1.0 v1.1 (local)
+git push origin -d v1.0 v1.1 (remote)
+
+Checking out TAGS
+We cannot checkout tags in git
+We can create a branch from a tag and checkout the branch
+git checkout -b "branch name" "tag name"
+example : git checkout -b ReleaseVer1 v1.0
+
+Creating TAGS from past commits
+git tag "tag name" "reference of commit"
+example : git tag  v1.2 5fcdb03
+
+To generate Access Token
+1. Login to your GitHub account
+2. Verify your email address, if it hasn't been verified yet.
+3. In the upper-right corner of any page, click your profile photo, then click Settings.
+4. In the left sidebar, click Developer settings.
+5. In the left sidebar, click Personal access tokens.
+6. Click Generate new token.
+7. Give your token a descriptive name.
+8. To give your token an expiration, select the Expiration drop-down menu, then click a default or use the calendar picker
+9. Select the scopes or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select repo.
+10. Click Generate token
